@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: radial-gradient(circle at 82% 18%, #2a3563 0%, #131a38 45%, #0b1026 100%);
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+    color: #f5f0e6;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 90px; position: relative; overflow: hidden;
+  }
+  .lune-deco {
+    position: absolute; top: 60px; right: 90px;
+    width: 150px; height: 150px; border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, #fdf6dd, #e8c874 65%);
+    box-shadow: 0 0 90px rgba(232,200,116,.45);
+  }
+  .lune-deco::after {
+    content: ""; position: absolute; top: -18px; left: -30px;
+    width: 150px; height: 150px; border-radius: 50%;
+    background: #131a38;
+  }
+  .logo { font-size: 54px; font-weight: 700; margin-bottom: 34px; }
+  .logo span { color: #e8c874; }
+  h1 { font-size: 62px; line-height: 1.14; max-width: 850px; font-weight: 700; }
+  h1 em { font-style: normal; color: #e8c874; }
+  p { margin-top: 30px; font-size: 30px; color: #9aa4c7; }
+  .url { position: absolute; bottom: 52px; left: 90px; font-size: 26px; color: #e8c874; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="lune-deco"></div>
+  <div class="logo">Code<span>Lune ☾</span></div>
+  <h1>Sites e-commerce <em>sur mesure</em><br>&amp; chatbots IA</h1>
+  <p>Votre boutique en ligne, avec un vendeur IA qui ne dort jamais.</p>
+  <div class="url">codelune.fr</div>
+</body>
+</html>

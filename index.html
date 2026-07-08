@@ -8,6 +8,11 @@
 <meta property="og:title" content="CodeLune — Sites e-commerce sur mesure & chatbots IA">
 <meta property="og:description" content="Votre boutique en ligne qui vous appartient vraiment, avec un conseiller IA disponible 24h/24.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://codelune.fr/">
+<meta property="og:image" content="https://codelune.fr/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://codelune.fr/">
 <style>
 :root {
   --nuit: #0b1026;
@@ -134,6 +139,16 @@ section { padding: 80px 0; }
 }
 .contact-boite h2 { font-size: 28px; margin-bottom: 12px; }
 .contact-boite p { color: var(--brume); margin-bottom: 28px; }
+.form-contact { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.form-contact input, .form-contact textarea {
+  width: 100%; padding: 13px 16px; border-radius: 10px; font-size: 15px; font-family: inherit;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); color: var(--lune);
+}
+.form-contact input::placeholder, .form-contact textarea::placeholder { color: var(--brume); }
+.form-contact input:focus, .form-contact textarea:focus { outline: none; border-color: var(--or); }
+.form-contact button { border: none; cursor: pointer; font-size: 16px; margin-top: 4px; }
+.contact-alt { margin-top: 20px; font-size: 14px; }
+.contact-alt a { color: var(--or); }
 
 footer { border-top: 1px solid rgba(255,255,255,.07); padding: 28px 0; text-align: center; color: var(--brume); font-size: 13.5px; }
 footer a { color: var(--brume); }
@@ -268,7 +283,17 @@ footer a { color: var(--brume); }
     <div class="contact-boite">
       <h2>Un projet en tête ?</h2>
       <p>Décrivez-le en quelques lignes — réponse sous 24 h, devis gratuit.</p>
-      <a class="btn" href="mailto:contact@codelune.fr?subject=Mon%20projet%20de%20site">✉️ contact@codelune.fr</a>
+      <form action="https://formsubmit.co/contact@codelune.fr" method="POST" class="form-contact">
+        <input type="hidden" name="_subject" value="Nouveau message depuis codelune.fr">
+        <input type="hidden" name="_next" value="https://codelune.fr/merci.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre e-mail" required>
+        <textarea name="message" rows="4" placeholder="Votre projet en quelques lignes…" required></textarea>
+        <button type="submit" class="btn">Envoyer ☾</button>
+      </form>
+      <p class="contact-alt">ou par e-mail : <a href="mailto:contact@codelune.fr">contact@codelune.fr</a></p>
     </div>
   </div>
 </section>

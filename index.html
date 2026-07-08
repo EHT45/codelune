@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeLune — Sites e-commerce sur mesure & chatbots IA</title>
+<meta name="description" content="CodeLune crée votre boutique en ligne sur mesure avec Laravel et intègre des chatbots IA qui augmentent vos ventes. Développeur freelance, 100 % à distance, partout en francophonie.">
+<meta property="og:title" content="CodeLune — Sites e-commerce sur mesure & chatbots IA">
+<meta property="og:description" content="Votre boutique en ligne qui vous appartient vraiment, avec un conseiller IA disponible 24h/24.">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --nuit: #0b1026;
+  --nuit-2: #131a38;
+  --lune: #f5f0e6;
+  --or: #e8c874;
+  --brume: #9aa4c7;
+  --radius: 14px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  background: var(--nuit);
+  color: var(--lune);
+  line-height: 1.65;
+}
+.conteneur { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(11,16,38,.85); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-size: 22px; font-weight: 700; letter-spacing: .5px; color: var(--lune); text-decoration: none; }
+.logo .lune { color: var(--or); }
+nav ul { display: flex; gap: 28px; list-style: none; }
+nav a { color: var(--brume); text-decoration: none; font-size: 15px; transition: color .2s; }
+nav a:hover { color: var(--lune); }
+.btn {
+  display: inline-block; padding: 12px 26px; border-radius: 999px;
+  background: linear-gradient(135deg, var(--or), #d4a843);
+  color: #1a1508; font-weight: 700; text-decoration: none; font-size: 15px;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,200,116,.25); }
+.btn-ghost {
+  background: transparent; border: 1px solid rgba(255,255,255,.25); color: var(--lune);
+}
+.btn-ghost:hover { box-shadow: none; border-color: var(--or); color: var(--or); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; padding: 110px 0 90px; text-align: center; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; top: -140px; right: 8%;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fdf6dd, var(--or) 60%, transparent 70%);
+  opacity: .18; filter: blur(2px);
+}
+.hero h1 { font-size: clamp(30px, 5vw, 52px); line-height: 1.15; max-width: 800px; margin: 0 auto 20px; }
+.hero h1 em { font-style: normal; color: var(--or); }
+.hero p.sous-titre { color: var(--brume); font-size: 19px; max-width: 640px; margin: 0 auto 36px; }
+.hero .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.badges { margin-top: 44px; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; color: var(--brume); font-size: 14px; }
+.badges span::before { content: "✓ "; color: var(--or); font-weight: 700; }
+
+/* ---------- Sections ---------- */
+section { padding: 80px 0; }
+.titre-section { text-align: center; margin-bottom: 52px; }
+.titre-section h2 { font-size: 32px; margin-bottom: 10px; }
+.titre-section p { color: var(--brume); max-width: 560px; margin: 0 auto; }
+
+/* Services */
+.cartes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.carte {
+  background: var(--nuit-2); border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius); padding: 32px 28px;
+  transition: transform .2s, border-color .2s;
+}
+.carte:hover { transform: translateY(-4px); border-color: rgba(232,200,116,.4); }
+.carte .icone { font-size: 34px; margin-bottom: 16px; }
+.carte h3 { font-size: 20px; margin-bottom: 12px; }
+.carte p { color: var(--brume); font-size: 15px; margin-bottom: 16px; }
+.carte .prix { color: var(--or); font-weight: 700; font-size: 17px; }
+
+/* Portfolio */
+.portfolio-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.portfolio-item { border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,.08); background: var(--nuit-2); }
+.portfolio-item img { width: 100%; display: block; aspect-ratio: 16/10; object-fit: cover; object-position: top; }
+.portfolio-item .legende { padding: 16px 20px; font-size: 14px; color: var(--brume); }
+.portfolio-item .legende strong { color: var(--lune); display: block; margin-bottom: 2px; }
+.note-projet { text-align: center; color: var(--brume); font-size: 15px; margin-top: 28px; }
+
+/* Démo chatbot */
+.demo-boite {
+  max-width: 460px; margin: 0 auto; background: var(--nuit-2);
+  border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); overflow: hidden;
+}
+.demo-entete { background: rgba(232,200,116,.12); padding: 14px 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.demo-entete .pastille { width: 9px; height: 9px; border-radius: 50%; background: #4ade80; }
+.demo-messages { padding: 20px; height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.msg { max-width: 82%; padding: 10px 14px; border-radius: 12px; font-size: 14.5px; }
+.msg.bot { background: rgba(124,156,245,.15); border-bottom-left-radius: 4px; align-self: flex-start; }
+.msg.moi { background: rgba(232,200,116,.18); border-bottom-right-radius: 4px; align-self: flex-end; }
+.demo-choix { padding: 0 20px 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.demo-choix button {
+  background: transparent; border: 1px solid rgba(255,255,255,.25); color: var(--lune);
+  border-radius: 999px; padding: 7px 14px; font-size: 13px; cursor: pointer; transition: all .15s;
+  font-family: inherit;
+}
+.demo-choix button:hover { border-color: var(--or); color: var(--or); }
+.demo-note { text-align: center; font-size: 13px; color: var(--brume); margin-top: 16px; }
+
+/* Processus */
+.etapes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; counter-reset: etape; margin-top: 20px; }
+.etape { position: relative; background: var(--nuit-2); border-radius: var(--radius); padding: 28px 22px 22px; border: 1px solid rgba(255,255,255,.07); }
+.etape::before {
+  counter-increment: etape; content: counter(etape);
+  position: absolute; top: -16px; left: 22px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--or); color: #1a1508; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.etape h3 { font-size: 16px; margin-bottom: 8px; }
+.etape p { color: var(--brume); font-size: 14px; }
+
+/* Contact */
+.contact-boite {
+  max-width: 560px; margin: 0 auto; text-align: center;
+  background: linear-gradient(160deg, var(--nuit-2), #1a2248);
+  border: 1px solid rgba(232,200,116,.25); border-radius: var(--radius); padding: 48px 36px;
+}
+.contact-boite h2 { font-size: 28px; margin-bottom: 12px; }
+.contact-boite p { color: var(--brume); margin-bottom: 28px; }
+
+footer { border-top: 1px solid rgba(255,255,255,.07); padding: 28px 0; text-align: center; color: var(--brume); font-size: 13.5px; }
+footer a { color: var(--brume); }
+
+@media (max-width: 640px) {
+  nav ul { display: none; }
+  section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="conteneur">
+    <nav>
+      <a class="logo" href="#">Code<span class="lune">Lune</span> <span class="lune">☾</span></a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#demo">Démo IA</a></li>
+        <li><a href="#processus">Comment ça marche</a></li>
+      </ul>
+      <a class="btn" href="#contact">Parler de votre projet</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="conteneur">
+    <h1>Votre boutique en ligne <em>sur mesure</em>,<br>avec un vendeur IA qui ne dort jamais.</h1>
+    <p class="sous-titre">CodeLune conçoit des sites e-commerce qui vous appartiennent vraiment — sans abonnement à une plateforme — et les équipe de chatbots IA qui conseillent vos clients 24h/24.</p>
+    <div class="actions">
+      <a class="btn" href="#contact">Demander un devis gratuit</a>
+      <a class="btn btn-ghost" href="#demo">Essayer la démo IA ☾</a>
+    </div>
+    <div class="badges">
+      <span>100 % à distance</span>
+      <span>Sites multilingues FR · EN · AR</span>
+      <span>Devis clair, sans surprise</span>
+      <span>TVA non applicable</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="conteneur">
+    <div class="titre-section">
+      <h2>Ce que CodeLune fait pour vous</h2>
+      <p>Trois services, un objectif : que votre présence en ligne vende à votre place.</p>
+    </div>
+    <div class="cartes">
+      <div class="carte">
+        <div class="icone">🛍️</div>
+        <h3>Boutique e-commerce sur mesure</h3>
+        <p>Catalogue, panier, paiement en ligne, gestion des commandes, stocks et promotions depuis un espace d'administration simple. Design adapté au mobile, référencement optimisé, mise en ligne incluse.</p>
+        <div class="prix">à partir de 890 €</div>
+      </div>
+      <div class="carte">
+        <div class="icone">🤖</div>
+        <h3>Chatbot IA pour votre site</h3>
+        <p>Un conseiller disponible jour et nuit : il connaît vos produits, répond à vos visiteurs, les guide vers l'achat et vous transmet les demandes complexes. En français, anglais ou arabe.</p>
+        <div class="prix">à partir de 250 €</div>
+      </div>
+      <div class="carte">
+        <div class="icone">🔧</div>
+        <h3>Dépannage Laravel / PHP</h3>
+        <p>Un bug, une erreur après une mise à jour, un formulaire muet ? Diagnostic précis, correction propre et expliquée, vérification complète. Intervention rapide.</p>
+        <div class="prix">à partir de 50 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="realisations" style="background: var(--nuit-2);">
+  <div class="conteneur">
+    <div class="titre-section">
+      <h2>Réalisation récente</h2>
+      <p>Une boutique de cosmétiques naturels conçue et développée de A à Z.</p>
+    </div>
+    <div class="portfolio-grille">
+      <div class="portfolio-item">
+        <img src="images/portfolio-accueil.jpg" alt="Page d'accueil d'une boutique e-commerce de cosmétiques naturels" loading="lazy">
+        <div class="legende"><strong>Vitrine élégante &amp; rapide</strong>Site trilingue français / anglais / arabe (affichage droite-à-gauche inclus)</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="images/portfolio-chatbot.jpg" alt="Chatbot IA conseiller de vente intégré sur une fiche produit" loading="lazy">
+        <div class="legende"><strong>Conseiller de vente IA</strong>Le chatbot répond aux questions et recommande les bons produits</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="images/portfolio-admin.jpg" alt="Tableau de bord d'administration de la boutique" loading="lazy">
+        <div class="legende"><strong>Administration complète</strong>Commandes, stocks, promotions et statistiques en un coup d'œil</div>
+      </div>
+    </div>
+    <p class="note-projet">Stack : Laravel · PHP 8.3 · MySQL · Tailwind CSS · API Claude (Anthropic)</p>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="conteneur">
+    <div class="titre-section">
+      <h2>Essayez un chatbot CodeLune ☾</h2>
+      <p>Voici une mini-démonstration : cliquez sur une question, le chatbot répond comme il le ferait sur votre site.</p>
+    </div>
+    <div class="demo-boite">
+      <div class="demo-entete"><span class="pastille"></span> Assistant CodeLune — démo</div>
+      <div class="demo-messages" id="demo-messages">
+        <div class="msg bot">Bonjour ! 👋 Je suis une démonstration du chatbot que CodeLune peut installer sur votre site. Posez-moi une question :</div>
+      </div>
+      <div class="demo-choix" id="demo-choix"></div>
+    </div>
+    <p class="demo-note">Sur votre site, le chatbot est relié à une vraie IA (Claude d'Anthropic ou ChatGPT) et connaît <em>vos</em> produits.</p>
+  </div>
+</section>
+
+<section id="processus" style="background: var(--nuit-2);">
+  <div class="conteneur">
+    <div class="titre-section">
+      <h2>Comment ça marche</h2>
+      <p>Simple, cadré, sans mauvaise surprise.</p>
+    </div>
+    <div class="etapes">
+      <div class="etape"><h3>On échange</h3><p>Vous décrivez votre projet par e-mail ou visio. C'est gratuit et sans engagement.</p></div>
+      <div class="etape"><h3>Devis clair</h3><p>Prix ferme, périmètre écrit, délai annoncé. Acompte de 30 % pour démarrer.</p></div>
+      <div class="etape"><h3>Création</h3><p>Vous suivez l'avancement avec des démonstrations régulières. Deux séries de retouches incluses.</p></div>
+      <div class="etape"><h3>Mise en ligne</h3><p>Livraison sur votre hébergement, formation à l'administration, et maintenance en option.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="conteneur">
+    <div class="contact-boite">
+      <h2>Un projet en tête ?</h2>
+      <p>Décrivez-le en quelques lignes — réponse sous 24 h, devis gratuit.</p>
+      <a class="btn" href="mailto:contact@codelune.fr?subject=Mon%20projet%20de%20site">✉️ contact@codelune.fr</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="conteneur">
+    CodeLune ☾ — Développement web freelance · <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var scenarios = {
+    "Combien coûte une boutique en ligne ?":
+      "Une boutique complète (catalogue, panier, paiement, administration) démarre à 890 €. Le prix exact dépend de vos besoins : nombre de langues, chatbot IA, fonctions particulières. Décrivez votre projet à contact@codelune.fr et vous recevrez un devis précis sous 24 h. 😊",
+    "Le chatbot parle-t-il arabe ?":
+      "Oui ! Les chatbots CodeLune peuvent conseiller vos clients en français, en anglais et en arabe — avec le même naturel. Idéal si votre clientèle est des deux côtés de la Méditerranée. 🌍",
+    "Combien de temps pour créer mon site ?":
+      "Comptez 3 à 6 semaines pour une boutique complète, selon la complexité et la rapidité d'envoi de vos contenus (textes, photos). Un chatbot seul s'installe en quelques jours.",
+    "Pourquoi pas Shopify ou Wix ?":
+      "Ces plateformes se louent : abonnement mensuel, commissions, et votre boutique ne vous appartient jamais vraiment. Un site sur mesure est à vous, sans loyer, plus rapide et entièrement adapté à votre métier."
+  };
+  var messages = document.getElementById("demo-messages");
+  var choix = document.getElementById("demo-choix");
+
+  function ajouterMessage(texte, classe) {
+    var div = document.createElement("div");
+    div.className = "msg " + classe;
+    div.textContent = texte;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function afficherChoix() {
+    choix.innerHTML = "";
+    Object.keys(scenarios).forEach(function (q) {
+      var b = document.createElement("button");
+      b.textContent = q;
+      b.onclick = function () {
+        ajouterMessage(q, "moi");
+        choix.innerHTML = "";
+        setTimeout(function () {
+          ajouterMessage(scenarios[q], "bot");
+          setTimeout(afficherChoix, 400);
+        }, 700);
+      };
+      choix.appendChild(b);
+    });
+  }
+  afficherChoix();
+})();
+</script>
+
+</body>
+</html>

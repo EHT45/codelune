@@ -283,12 +283,13 @@ footer a { color: var(--brume); }
     <div class="contact-boite">
       <h2>Un projet en tête ?</h2>
       <p>Décrivez-le en quelques lignes — réponse sous 24 h, devis gratuit.</p>
-      <form action="https://formsubmit.co/contact@codelune.fr" method="POST" class="form-contact">
-        <input type="hidden" name="_subject" value="Nouveau message depuis codelune.fr">
-        <input type="hidden" name="_next" value="https://codelune.fr/merci.html">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none">
-        <input type="text" name="nom" placeholder="Votre nom" required>
+      <form action="https://api.web3forms.com/submit" method="POST" class="form-contact">
+        <input type="hidden" name="access_key" value="04f8dd69-0dc6-4652-ab5c-f1ef726e6a95">
+        <input type="hidden" name="subject" value="Nouveau message depuis codelune.fr">
+        <input type="hidden" name="from_name" value="CodeLune">
+        <input type="hidden" name="redirect" value="https://codelune.fr/merci.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="name" placeholder="Votre nom" required>
         <input type="email" name="email" placeholder="Votre e-mail" required>
         <textarea name="message" rows="4" placeholder="Votre projet en quelques lignes…" required></textarea>
         <button type="submit" class="btn">Envoyer ☾</button>

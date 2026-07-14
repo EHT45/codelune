@@ -106,6 +106,14 @@ section { padding: 74px 0; }
 }
 .contact-boite h2 { font-size: 28px; margin-bottom: 12px; }
 .contact-boite p { color: var(--brume); margin-bottom: 28px; }
+.form-contact { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.form-contact input, .form-contact textarea {
+  width: 100%; padding: 13px 16px; border-radius: 10px; font-size: 15px; font-family: inherit;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); color: var(--lune);
+}
+.form-contact input::placeholder, .form-contact textarea::placeholder { color: var(--brume); }
+.form-contact input:focus, .form-contact textarea:focus { outline: none; border-color: var(--or); }
+.form-contact button { border: none; cursor: pointer; font-size: 16px; margin-top: 4px; }
 .contact-alt { margin-top: 20px; font-size: 14px; }
 .contact-alt a { color: var(--or); }
 
@@ -220,7 +228,17 @@ footer a { color: var(--brume); }
     <div class="contact-boite">
       <h2>Parlons de votre projet beauté</h2>
       <p>Décrivez-nous votre institut ou votre marque : vous recevez un devis clair sous 24 h, sans engagement.</p>
-      <a class="btn" href="/#contact">Demander mon devis gratuit</a>
+      <form action="https://api.web3forms.com/submit" method="POST" class="form-contact">
+        <input type="hidden" name="access_key" value="04f8dd69-0dc6-4652-ab5c-f1ef726e6a95">
+        <input type="hidden" name="subject" value="Nouveau message depuis codelune.fr/beaute (secteur beauté)">
+        <input type="hidden" name="from_name" value="CodeLune — Beauté">
+        <input type="hidden" name="redirect" value="https://codelune.fr/merci.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="name" placeholder="Votre nom / votre établissement" required>
+        <input type="email" name="email" placeholder="Votre e-mail" required>
+        <textarea name="message" rows="4" placeholder="Votre projet en quelques lignes (institut, salon, marque…)" required></textarea>
+        <button type="submit" class="btn">Envoyer ☾</button>
+      </form>
       <p class="contact-alt">ou par e-mail : <a href="mailto:contact@codelune.fr?subject=Projet%20beaut%C3%A9%20%26%20bien-%C3%AAtre">contact@codelune.fr</a></p>
     </div>
   </div>
